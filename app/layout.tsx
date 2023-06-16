@@ -25,7 +25,6 @@ export default function RootLayout({
         <Providers>
           <div className="overflow-x-hidden">
             <Themechanger />
-            {children}
           </div>
         </Providers>
         <Navbar/>
