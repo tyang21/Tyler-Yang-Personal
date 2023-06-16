@@ -14,9 +14,7 @@ const Hero = () => {
                 <div className= "px-20">
                     <h1 className="font-bold text-2xl md:text-4xl">Hello Hello! I'm Tyler, welcome to my page!</h1>
                     <p className="mt-4 mb-6 text-lg">
-                        I code and do that kind of stuff - but I'm also an avid weather enthusiast, geography buff, piano man, anime lover, and overachiever.
-                        Currently, one of my sidequests is being able to explore as many airports as possible and as many skyscrapers (and cities too) as possible.
-                        Check below for some of my most meaningful projects as well as the rest of the page for my hobbies.
+                        Thanks for visiting. On the top you should find links to some really cool things! If you want to explore more about me - feel free to also just keep scrolling below. There is plenty of good content on this page!
                     </p>
                 </div>
             </div>
