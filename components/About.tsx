@@ -13,6 +13,14 @@ const About = () => {
                         </p>
                         <h1> Meteorology</h1>
                         <p> I love weather so much. I like looking at radar maps. I like predicting when it snows. I am a fiend for abnormal weather events (as long as it doesn't kill me). I used to post weather videos on my youtube channel with a weather report. Perhaps I'll start a weather blog sometime</p>
+                        <h1> Geography</h1>
+                        <p>The books I would read the most when I was little were atlas's. I've kind of lost my touch since highschool but I can still list all the countries in the world.</p>
+                        <h1>Music</h1>
+                        <p> I play both the Cello and the Piano and have been for years, but nowadays i've really been honing in my PlayByEar skills. Ask me any song and I'll be able to play it!</p>
+                        <h1>City Landscapes</h1>
+                        <p> I love modern architecture. I could look and appreciate at skyscrapers forever. One of my bucket lists is to visit all skyscrapers in the world that are above 950 feet. In the future, I'll list an updated spreadsheet of how many buildings I've visited. Otherwise checkout my second instagram account @si.tai_ to follow my journey!</p>
+                        <h1>Airplanes/Airports</h1>
+                        <p>I was known as airplane master back in middle school because of self explanatory reasons. I hope to fly to as many commercial airports as possible. This is also documented on the @si.tai_ instagram.</p>
                     </div>
                 </div>
             </div>
