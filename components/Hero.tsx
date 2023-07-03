@@ -12,9 +12,9 @@ const Hero = () => {
                     <Image className = "rounded-full shadow-2xl w-72 h-72 object-none" src="/headshot.png" alt="" width={300} height={300} />
                 </div>
                 <div className= "px-20">
-                    <h1 className="font-bold text-2xl md:text-4xl">Hello Hello! I'm Tyler, welcome to my page!</h1>
+                    <h1 className="font-bold text-2xl md:text-4xl">Hello Hello! I'm Tyler, welcome!</h1>
                     <p className="mt-4 mb-6 text-lg">
-                        Thanks for visiting. On the top you should find links to some really cool things! If you want to explore more about me - feel free to also just keep scrolling below. There is plenty of good content on this page!
+                        Thanks for visiting. On the top you should find links to some really cool things! If you want to explore more about me - feel free to also just keep scrolling below. There is plenty of good content on this page! Dark mode is also available, just click the button on the bottom right!
                     </p>
                 </div>
             </div>
