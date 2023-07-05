@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import {BsGithub} from "react-icons/bs"
 import {FaExternalLinkAlt} from "react-icons/fa"
+import SlideUp from "./SlideUp"
 const projects = [
     {
         name: "Ketchup!",
@@ -13,7 +14,7 @@ const projects = [
     },
     {
         name: "NetflixGPT",
-        description: "A Netflix AI chatbot companion that provides spoiler-free context-aware Q&A powered by OpenAI's GPT-4. Currently works as a chrome extension that will scrape netflix metadata so you can just ask your question within a show and episode and answers with context up to your current episode will be provided! A demoable link will be available in the near future!",
+        description: "A Netflix AI chatbot companion that provides spoiler-free context-aware Q&A powered by OpenAI's GPT-4. It currently works as a chrome extension that will scrape netflix metadata so you can simply pose any question while watching any show and receive informative answers tailored to your current progress in the series! A demoable link will be available in the near future!",
         image: "/netflixgpt.png",
         github:"https://github.com/shrey150/NetflixGPT",
         link: "None"
@@ -41,9 +42,10 @@ const Projects = () => {
                     const externalLink = hasExternalLink && isValidURL(project.link) ? project.link : null;
                     return (
                         <div key={idx}>
-                            <div className = "flex flex-col md:flex-row md:space-x-12">
+                            <SlideUp offset="-300px 0px -300px 0px">
+                            <div className = "flex flex-col animate-slideUpCubiBezier animation-delay-2 md:flex-row md:space-x-12">
                                 <div className=" mt-8 md:w-1/2">
-                                    {hasExternalLink ? (
+                                    {externalLink ? (
                                         <Link href={project.link} target="_blank">
                                             <Image src={project.image} alt="" width={1000} height={1000} className="rounded-xl shadow-xl hover:opacity-70"/>
                                         </Link>
@@ -72,6 +74,7 @@ const Projects = () => {
                                     </div>
                                 </div>
                             </div>
+                            </SlideUp>
                         </div>
                     )
                     })}

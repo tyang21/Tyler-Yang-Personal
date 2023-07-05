@@ -4,6 +4,7 @@ import { Link } from "react-scroll/modules"
 // import { useTheme } from "next-themes"
 import { RiMoonFill, RiSunLine } from "react-icons/ri"
 import { IoMdMenu, IoMdClose } from "react-icons/io"
+import Linker from 'next/link'
 
 interface NavItem {
     label: string
@@ -16,7 +17,7 @@ const NAV_ITEMS: Array<NavItem> = [
         page: "Home",
     },
     { 
-        label: "About",
+        label: "AboutMe",
         page: "about",
     },
     {
@@ -71,6 +72,9 @@ const Navbar = () => {
                                     </Link>
                                   )
                             })}
+                            <Linker href = "/aboutpage" className="block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer">
+                                    AboutThisPage
+                            </Linker>
                             {/* {currentTheme === "dark" ? (
                                 <button onClick={() => setTheme("light")} className="bg-slate-100 p-2 rounded-xl">
                                     <RiSunLine size={25} color="black"/>

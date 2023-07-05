@@ -1,16 +1,17 @@
-// "use client"
+
 import './globals.css'
 import { Metadata } from "next";
 import Providers from "../components/Themeprovider";
 import Themechanger from "../components/Themechanger";
-import Navbar from '../components/navbar'
+import Navbar from '../components/navbar';
+import Footer from "../components/Footer";
 import { ThemeProvider } from "next-themes"
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadat: Metadata = {
-  title: "Create Night Mode",
+export const metadata: Metadata = {
+  title: "Tyler Yang",
   description: "Manually Created",
 }
 
@@ -22,13 +23,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          <div className="overflow-x-hidden">
-            <Themechanger />
-          </div>
-        </Providers>
-        <Navbar/>
-        {children}
+        <div  className = "bg-gradient-to-r from-cyan-300 to-teal-200 text-sky-950  dark:from-blue-950 dark:to-indigo-950 dark:text-blue-200">
+          <Providers>
+            <div className="overflow-x-hidden">
+              <Themechanger />
+            </div>
+          </Providers>
+          {children}
+          <Footer />
+        </div>
         
       </body>
     </html>

@@ -23,6 +23,8 @@ const About = () => {
                         <p> I love modern architecture. I could look and appreciate at skyscrapers forever. One of my bucket lists is to visit all skyscrapers in the world that are above 950 feet. In the future, I'll list an updated spreadsheet of how many buildings I've visited. Otherwise checkout my second instagram account @si.tai_ to follow my journey!</p>
                         <h1>Airplanes/Airports</h1>
                         <p>I was known as airplane master back in middle school because of self explanatory reasons. I hope to fly to as many commercial airports as possible. This is also documented on the @si.tai_ instagram.</p>
+                        <h1>Gym</h1>
+                        <p> Been lifting seriously during the summers. Started back in 10th grade. Bodyweight: 195 pounds. Current max's: Bench-205 pounds, Squat - 245 pounds, Deadlift - 245 pounds, OHP - 120 pounds. Running GZCLP this summer - will update maxes after August.</p>
                     </div>
                 </div>
             </div>
