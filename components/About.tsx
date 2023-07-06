@@ -34,17 +34,17 @@ const About = () => {
                             It would be kind of lame for me to spew stuff that is already stated on my resume so let me share with you other things that may not be.
                         </p>
                         <h1> Meteorology</h1>
-                        <p> I love weather so much. I like looking at radar maps. I like predicting when it snows. I am a fiend for abnormal weather events (as long as it doesn&#39;t kill me). I used to post weather videos on my youtube channel with a weather report. Perhaps I&#39;ll start a weather blog sometime.</p>
+                        <p> I love weather so much. I like looking at radar maps. I like predicting when it snows. I am a fiend for abnormal weather events (as long as it doesn&#39;t kill me). I used to post weather report videos on my YouTube channel. Perhaps, one day, I&#39;ll start my very own weather blog.</p>
                         <h1> Geography</h1>
-                        <p>The books I would read the most when I was little were atlas&#39;s. I&#39;ve kind of lost my touch since highschool but I can still list all the countries in the world.</p>
+                        <p>Atlases were the most common type of book on my childhood shelves. I&#39;ve kind of lost my touch since high school but I can still list all the countries in the world.</p>
                         <h1>Music</h1>
-                        <p> I play both the Cello and the Piano and have been for years, but nowadays I&#39;ve really been honing in my PlayByEar skills. Ask me any song and I&#39;ll be able to play it!</p>
+                        <p> I&#39;ve been playing both the cello and piano for many years, but nowadays I&#39;ve really been honing my "playing by ear" skills. Name any song, and I&#39;ll be able to play it!</p>
                         <h1>City Landscapes</h1>
-                        <p> I love modern architecture. I could look and appreciate at skyscrapers forever. One of my bucket lists is to visit all skyscrapers in the world that are above 950 feet. In the future, I&#39;ll list an updated spreadsheet of how many buildings I&#39;ve visited. Otherwise checkout my second instagram account @si.tai_ to follow my journey!</p>
+                        <p>I am fascinated by modern architecture. I could look at and appreciate city skylines forever! I have a list of all skyscrapers in the world above 950 feet, and someday I want to visit them all. In the future, I&#39;ll list an updated spreadsheet of all the buildings I&#39;ve seen so far; but in the mean time, check out my second instagram account @si.tai_ to follow my journey!</p>
                         <h1>Airplanes/Airports</h1>
-                        <p>I was known as airplane master back in middle school because of self explanatory reasons. I hope to fly to as many commercial airports as possible. This is also documented on the @si.tai_ instagram.</p>
+                        <p>I was known as airplane master back in middle school because of my excitement of everything flying related. I hope to fly to as many commercial airports as possible. This is also documented on the @si.tai_ instagram.</p>
                         <h1>Gym</h1>
-                        <p> Been lifting seriously during the summers. Started back in 10th grade. Bodyweight: 195 pounds. Current max&#39;s are listed below. Running GZCLP this summer - will update maxes after August.</p>
+                        <p> I've been lifting seriously during the summers for a couple of years. My current bodyweight is 195 pounds and current max&#39;s are listed below. I'm running GZCLP this summer and will update maxes after August.</p>
                         <div className="flex flex-col md:px-60 space-y-4">
                             {MaxMap.map((lift, idx) => (
                                 <div key={idx} className="flex flex-row items-center justify-between border-2 border-dashed rounded-xl py-2 space-y-2">
