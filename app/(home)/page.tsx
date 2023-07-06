@@ -4,7 +4,7 @@ import About from "../../components/About"
 import Projects from "../../components/Projects"
 export default function Home() {
   return (
-    <main className="px-4 sm:px-6 ">
+    <main className="px-4 sm:px-6 mb-24">
       <Hero/>
       <About/>
       <Projects/>
