@@ -27,7 +27,7 @@ const toolMap = [
 
 const Aboutpage = () => {
     return (
-        <div className = "sm:py-20 p-4 flex flex-col flex-grow items-center justify-start h-screen w-full">
+        <div className = "sm:py-20 p-4 flex flex-col flex-grow items-center justify-start min-h-screen w-full">
             <h1 className = "font-bold text-5xl">How Did I Create This Page?</h1>
             <p className = "italic p-2 mb-4">Several toolboxes were utilized to create this page:</p>
             <div className = "flex flex-col space-y-2 w-5/6 ">
