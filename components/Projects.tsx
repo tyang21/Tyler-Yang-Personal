@@ -21,7 +21,7 @@ const projects = [
     },
     {
         name: "Gitlet",
-        description: "A file version-control system inspired by git that is supports many core features. The full spec is on the github page, but it is capable of initializing a repository, adding files, committing files, branching, merging, and more! If you want access to the full-spec, please contact me as it is private.",
+        description: "A file version-control system inspired by git that supports many core features. The full spec is on the github page, but it is capable of initializing a repository, adding files, committing files, branching, merging, and more! If you want access to the full-spec, please contact me as it is private.",
         image: "/gitlet.png",
         github: "none",
         link: "none"

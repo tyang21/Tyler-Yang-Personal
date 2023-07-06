@@ -3,17 +3,23 @@
 @tailwind utilities;
 
 #aboutMe h1{
-    display: flex;
+    display:flex;
     justify-content: center;
     font-size: 1.5em;
     text-decoration: underline;
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 2px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    resize:both;
 }
 #aboutMe p{
     text-align: center;
-    display: flex;
-    justify-content: center;
     font-size: 1.2em;
     padding-bottom: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    outline: solid 1px red;
+    resize:both;
 }
