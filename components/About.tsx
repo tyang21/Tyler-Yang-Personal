@@ -38,13 +38,13 @@ const About = () => {
                         <h1> Geography</h1>
                         <p>Atlases were the most common type of book on my childhood shelves. I&#39;ve kind of lost my touch since high school but I can still list all the countries in the world.</p>
                         <h1>Music</h1>
-                        <p> I&#39;ve been playing both the cello and piano for many years, but nowadays I&#39;ve really been honing my "playing by ear" skills. Name any song, and I&#39;ll be able to play it!</p>
+                        <p> I&#39;ve been playing both the cello and piano for many years, but nowadays I&#39;ve really been honing my &#34;playing by ear&#34; skills. Name any song, and I&#39;ll be able to play it!</p>
                         <h1>City Landscapes</h1>
                         <p>I am fascinated by modern architecture. I could look at and appreciate city skylines forever! I have a list of all skyscrapers in the world above 950 feet, and someday I want to visit them all. In the future, I&#39;ll list an updated spreadsheet of all the buildings I&#39;ve seen so far; but in the mean time, check out my second instagram account @si.tai_ to follow my journey!</p>
                         <h1>Airplanes/Airports</h1>
                         <p>I was known as airplane master back in middle school because of my excitement of everything flying related. I hope to fly to as many commercial airports as possible. This is also documented on the @si.tai_ instagram.</p>
                         <h1>Gym</h1>
-                        <p> I've been lifting seriously during the summers for a couple of years. My current bodyweight is 195 pounds and current max&#39;s are listed below. I'm running GZCLP this summer and will update maxes after August.</p>
+                        <p> I&#39;ve been lifting seriously during the summers for a couple of years. My current bodyweight is 195 pounds and current max&#39;s are listed below. I&#39;m running GZCLP this summer and will update maxes after August.</p>
                         <div className="flex flex-col md:px-60 space-y-4">
                             {MaxMap.map((lift, idx) => (
                                 <div key={idx} className="flex flex-row items-center justify-between border-2 border-dashed rounded-xl py-2 space-y-2">

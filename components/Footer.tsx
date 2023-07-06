@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
     return (
-        <footer className="mx-auto px-4 sm:px-6 bg-gradient-to-r from-cyan-300 to-teal-200 text-sky-950  dark:from-blue-950 dark:to-indigo-950 dark:text-blue-200 ">
+        <footer className="mx-auto px-4 sm:px-6 bg-gradient-to-r  text-sky-950  dark:from-blue-950 dark:to-indigo-950 dark:text-blue-200 ">
             <hr className="w-full h-1 mx-auto border-2 border-blue-900 dark:border-sky-100 rounded border-dashed "></hr>
             <div className="mx-auto  p-4 flex flex-col text-center md:flex-row md:justify-between">
                 <div>Check out my links!</div>

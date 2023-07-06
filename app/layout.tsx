@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div  className = "bg-gradient-to-r from-cyan-300 to-teal-200 text-sky-950  dark:from-blue-950 dark:to-indigo-950 dark:text-blue-200">
+        <div  className = "bg-gradient-to-r from-cyan-300 to-blue-300 text-sky-950  dark:from-blue-950 dark:to-indigo-950 dark:text-blue-200">
           <Providers>
             <div className="overflow-x-hidden">
               <Themechanger />

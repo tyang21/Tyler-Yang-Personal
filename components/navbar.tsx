@@ -35,7 +35,7 @@ const Navbar = () => {
 
 
     return (
-        <header className="w-full mx-auto px-4 bg-teal-100 text-sky-950 shadow fixed top-0 z-50 dark:bg-indigo-900 dark:border-b dark:border-indigo-500 dark:text-blue-100">
+        <header className="w-full mx-auto px-4 bg-cyan-400 text-sky-950 shadow fixed top-0 z-50 dark:bg-indigo-900 dark:border-b dark:border-indigo-500 dark:text-blue-100">
             <div className="justify-between md:items-center md:flex">
                 <div>
                     <div className = "flex items-center justify-between py-3">
