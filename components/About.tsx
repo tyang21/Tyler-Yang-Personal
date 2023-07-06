@@ -46,8 +46,8 @@ const About = () => {
                         <h1>Gym</h1>
                         <p> Been lifting seriously during the summers. Started back in 10th grade. Bodyweight: 195 pounds. Current max&#39;s are listed below. Running GZCLP this summer - will update maxes after August.</p>
                         <div className="flex flex-col px-72 space-y-4">
-                            {MaxMap.map((lift) => (
-                                <div className="flex flex-row items-center justify-between border-2 border-dashed rounded-xl py-2 space-y-2">
+                            {MaxMap.map((lift, idx) => (
+                                <div key={idx} className="flex flex-row items-center justify-between border-2 border-dashed rounded-xl py-2 space-y-2">
                                     <p className="w-1/2 mt-2 font-semibold">{lift.lift}</p>
                                     <BsArrowRightCircle size={30} className="align-center mt-2 pb-2"/>
                                     <p className="w-1/2 font-semibold">{lift.max}</p>
