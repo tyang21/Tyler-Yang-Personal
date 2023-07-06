@@ -30,7 +30,7 @@ const About = () => {
                 </h1>
                 <div className="flex flex-wrap items-stretch justify-center align-top md:flex-row md:text-left  md:px-20">
                     <div id="aboutMe" className="w-full" >
-                        <p className = "flex italic">
+                        <p className = "italic">
                             It would be kind of lame for me to spew stuff that is already stated on my resume so let me share with you other things that may not be.
                         </p>
                         <h1> Meteorology</h1>
