@@ -1,5 +1,25 @@
 import React from 'react'
 import '../styles/styles.css'
+import { BsArrowRightCircle }  from 'react-icons/bs';
+
+const MaxMap = [
+    {
+        lift: "Squat",
+        max: 245
+    },
+    {
+        lift: "Bench",
+        max: 205
+    },
+    {
+        lift: "Deadlift",
+        max: 265
+    },
+    {
+        lift: "Overhead Press",
+        max: 120
+    }
+]
 
 const About = () => {
     return (
@@ -8,7 +28,7 @@ const About = () => {
                 <h1 className="text-center font-bold text-4xl">About me
                 <hr className="w-16 h-1 mx-auto my-4 border-0 rounded bg-indigo-800 dark:bg-teal-200"></hr>
                 </h1>
-                <div className="flex flex-col items-stretch justify-center align-top md:flex-row md:text-left  md:px-20">
+                <div className="flex flex-row items-stretch justify-center align-top md:flex-row md:text-left  md:px-20">
                     <div id="aboutMe" >
                         <p className = "flex italic">
                             It would be kind of lame for me to spew stuff that is already stated on my resume so let me share with you other things that may not be.
@@ -24,7 +44,26 @@ const About = () => {
                         <h1>Airplanes/Airports</h1>
                         <p>I was known as airplane master back in middle school because of self explanatory reasons. I hope to fly to as many commercial airports as possible. This is also documented on the @si.tai_ instagram.</p>
                         <h1>Gym</h1>
-                        <p> Been lifting seriously during the summers. Started back in 10th grade. Bodyweight: 195 pounds. Current max's: Bench-205 pounds, Squat - 245 pounds, Deadlift - 245 pounds, OHP - 120 pounds. Running GZCLP this summer - will update maxes after August.</p>
+                        <p> Been lifting seriously during the summers. Started back in 10th grade. Bodyweight: 195 pounds. Current max's are listed below. Running GZCLP this summer - will update maxes after August.</p>
+                        {/* <div className = "flex flex-col px-72 space-y-4">
+                            {MaxMap.map((lift, idx) => (
+                                <div className = "flex flex-row items-center justify-between border-2 rounded-xl py-2 space-y-2">
+                                    <p className="w-1/2 mt-2 font-semibold">{lift.lift}</p>
+                                    <BsArrowRightCircle size={24} className=""/>
+                                    <p className="w-1/2 font-semibold">{lift.max}</p>
+                                </div>
+                            ))}
+                        </div> */}
+                        <div className="flex flex-col px-72 space-y-4">
+                            {MaxMap.map((lift, idx) => (
+                                <div className="flex flex-row items-center justify-between border-2 border-dashed rounded-xl py-2 space-y-2">
+                                    <p className="w-1/2 mt-2 font-semibold">{lift.lift}</p>
+                                    <BsArrowRightCircle size={30} className="align-center mt-2 pb-2"/>
+                                    <p className="w-1/2 font-semibold">{lift.max}</p>
+                                </div>
+                            ))}
+                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -1,5 +1,9 @@
+import Aboutpage from '../../components/Aboutpage'
+
 export default function aboutPage() {
     return (
-      <div className ='my-24'>Hello World</div>
+        <main className="px-2 sm:px-6 my-24">
+            <Aboutpage/>
+        </main>
     )
   }
