@@ -7,7 +7,7 @@
     justify-content: center;
     font-size: 1.5em;
     text-decoration: underline;
-    width: 100%;
+    width: full;
     padding-top: 10px;
     padding-bottom: 2px;
     overflow-wrap: break-word;
@@ -20,6 +20,5 @@
     padding-bottom: 10px;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    outline: solid 1px red;
     resize:both;
 }
