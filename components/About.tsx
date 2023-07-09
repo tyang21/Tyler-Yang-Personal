@@ -44,7 +44,7 @@ const About = () => {
                         <h1>Airplanes/Airports</h1>
                         <p>I was known as airplane master back in middle school because of my excitement of everything flying related. I hope to fly to as many commercial airports as possible. This is also documented on the @si.tai_ instagram.</p>
                         <h1>Gym</h1>
-                        <p> I&#39;ve been lifting seriously during the summers for a couple of years. My current bodyweight is 195 pounds and current max&#39;s are listed below. I&#39;m running GZCLP this summer and will update maxes after August.</p>
+                        <p> I&#39;ve been lifting seriously during the summers for a couple of years. My current bodyweight is 195 pounds and current maxes are listed below. I&#39;m running GZCLP this summer and will update maxes after August.</p>
                         <div className="flex flex-col md:px-60 space-y-4">
                             {MaxMap.map((lift, idx) => (
                                 <div key={idx} className="flex flex-row items-center justify-between border-2 border-dashed rounded-xl py-2 space-y-2">
