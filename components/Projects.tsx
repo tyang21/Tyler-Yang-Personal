@@ -7,7 +7,7 @@ import SlideUp from "./SlideUp"
 const projects = [
     {
         name: "Ketchup!",
-        description: "A Quality-of-Life MacOS app that performs a topic summarization of all unread messages. A demoable link will be available in the near future!",
+        description: "A Quality-of-Life MacOS app that performs a topic summarization of all unread messages within groupchats. This app intelligently analyzes the iMessage database using the cutting-edge capabilities of GPT-4 to group messages together and generate concise topic titles, descriptions, and summaries. Furthermore, it allows you to seamlessly send messages back to the original group chat, complete with AI-generated suggestions, based on the topics discussed. A demoable link will be available in the near future!",
         image: "/ketchup.png",
         github: "https://github.com/shrey150/ketchup",
         link: "none"
