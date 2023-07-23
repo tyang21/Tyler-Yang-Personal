@@ -42,7 +42,7 @@ const Aboutpage = () => {
                     </div>
                     ))}
             </div>
-            <p className="mt-8 text-xl"> This site&#39;s UI was largely inspired by Hosna Qasmei&#39;s awesome tutorial. Check it out below! </p>
+            <p className="mt-8 text-xl"> This site&#39;s UI was inspired by Hosna Qasmei&#39;s awesome tutorial. Check it out below! </p>
             <Link href="https://www.youtube.com/watch?v=7gnVzj_nMJw&ab_channel=HosnaQasmei" rel="noreferrer" target="_blank">
                 <div className="flex flex-row items-center justify-center space-x-2 mt-4">
                     <AiOutlineYoutube
