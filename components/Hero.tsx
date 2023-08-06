@@ -14,7 +14,7 @@ const Hero = () => {
                 <div className= "px-20">
                     <h1 className="font-bold text-2xl md:text-4xl">Hello Hello! I&#39;m Tyler, welcome!</h1>
                     <p className="mt-4 mb-6 text-lg">
-                    Thank you for stopping by! At the top, you&#39;ll discover links to some incredibly exciting things. If you are interested in delving deeper into who I am, feel free to continue scrolling down. This page is packed with fantastic content! Additionally, you&#39;ll find icons at the bottom of the page that showcase my resume and social media profiles. If you prefer a darker theme, simply click the button located in the bottom right corner to activate dark mode.
+                    Thank you for stopping by! At the top, you&#39;ll discover links to some incredibly exciting things. If you are interested in delving deeper into who I am, feel free to continue scrolling down. This page is packed with fantastic content! Additionally, you&#39;ll find icons at the bottom of the page that showcase my resume and social media profiles. If you prefer a different theme, simply click the button located in the bottom right corner to activate dark or light mode.
                     </p>
                 </div>
             </div>
