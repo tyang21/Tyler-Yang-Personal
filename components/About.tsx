@@ -5,11 +5,11 @@ import { BsArrowRightCircle }  from 'react-icons/bs';
 const MaxMap = [
     {
         lift: "Squat",
-        max: 245
+        max: 275
     },
     {
         lift: "Bench",
-        max: 205
+        max: 225
     },
     {
         lift: "Deadlift",
