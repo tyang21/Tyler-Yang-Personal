@@ -1,10 +1,8 @@
-import Hero from "../../components/Hero"
-import About from '../../components/About'
-import Projects from '../../components/Projects'
 
+import Blogmain from "../../components/Blogmain";
 export default function Page() {
     return (
     <div className = "my-24 ">
-        <h1>Hello world!</h1>
+        <Blogmain/>
     </div>)
   }

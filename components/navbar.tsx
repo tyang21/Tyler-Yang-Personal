@@ -75,6 +75,9 @@ const Navbar = () => {
                             <Linker href = "/aboutpage" className="block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer">
                                     AboutThisPage
                             </Linker>
+                            <Linker href = "/blogs" className="block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer">
+                                    Blog
+                            </Linker>
                             {/* {currentTheme === "dark" ? (
                                 <button onClick={() => setTheme("light")} className="bg-slate-100 p-2 rounded-xl">
                                     <RiSunLine size={25} color="black"/>
