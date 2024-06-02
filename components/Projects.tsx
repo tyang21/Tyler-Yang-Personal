@@ -14,7 +14,7 @@ const projects = [
     },
     {
         name: "NetflixGPT",
-        description: "A Netflix AI chatbot companion that provides spoiler-free context-aware Q&A powered by OpenAI's GPT-4. It currently works as a chrome extension that will scrape netflix metadata so you can simply pose any question while watching any show and receive informative answers tailored to your current progress in the series! A demoable link will be available in the near future!",
+        description: "A Netflix and CrunchyRoll AI chatbot companion that provides spoiler-free context-aware Q&A powered by OpenAI's GPT-4. It currently works as a chrome extension that will scrape netflix metadata so you can simply pose any question while watching any show and receive informative answers tailored to your current progress in the series! A demoable link will be available in the near future!",
         image: "/netflixgpt.png",
         github:"https://github.com/shrey150/NetflixGPT",
         link: "None"
