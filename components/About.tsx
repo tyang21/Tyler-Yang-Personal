@@ -34,7 +34,13 @@ const About = () => {
                             It would be kind of lame for me to spew stuff that is already stated on my resume so let me share with you other things that may not be.
                         </p>
                         <h1> Meteorology</h1>
-                        <p> I love weather so much. I like looking at radar maps. I like predicting when it snows. I am a fiend for abnormal weather events (as long as it doesn&#39;t kill me). I used to post weather report videos on my YouTube channel. Perhaps, one day, I&#39;ll start my very own weather blog.</p>
+                        <p> 
+                            I love weather so much. I like looking at radar maps. I like predicting when it snows. I am a fiend for abnormal weather events (as long as it doesn&#39;t kill me). I used to post weather report videos on my YouTube channel. Perhaps, one day, I&#39;ll start my very own weather blog. I am also in the Climate Dynamics Group doing research under Professor William Boos! If you want to checkout some of the public work available, I am working on constructing 
+                            <a className = "mx-1 font-bold underline" href="https://worldmonsoons.org/CameroonImergSite/index.html">
+                                this website
+                            </a> 
+                             that has up-to-date information about extreme precipitation happening in Camaroon.
+                        </p>
                         <h1> Geography</h1>
                         <p>Atlases were the most common type of book on my childhood shelves. I&#39;ve kind of lost my touch since high school but I can still list all the countries in the world.</p>
                         <h1>Music</h1>
