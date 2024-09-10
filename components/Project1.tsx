@@ -11,7 +11,7 @@ export const Project1 = () => {
         Prokudin Gorskii was a pioneer of his time. He believed that color photography was going to take over the future. However, he knew that there was not way to print out the the color photos out at his time. Thus, he came up with the brilliant idea of taking three photos of the same scene using a red, green, and blue filter. An example of one of these photos is pictured below.
       </p>
       <Image
-        src="/cathedral.jpg"
+        src="/CS180_images/Project1_Images/cathedral.jpg"
         alt="A russian Cathedral taken by Prokudin Gorskii"
         width={150}
         height={150}
