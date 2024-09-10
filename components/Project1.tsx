@@ -47,71 +47,71 @@ export const Project1 = () => {
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/cathedral.jpgredanti4x.jpg" alt="Project 1" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/cathedral.jpgredanti4x.jpg" alt="Project 1" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Cathedral: B Offset: (-7, -1), G Offset: (-12, -3)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/church.tifredanti4x.jpg" alt="Project 2" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/church.tifredanti4x.jpg" alt="Project 2" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Church: B Offset: (-33, 8), G Offset: (-58, 4) </p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/emir.tifredanti4x.jpg" alt="Project 3" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/emir.tifredanti4x.jpg" alt="Project 3" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Emir: B Offset: (-57, -17), G Offset: (40, -13)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/harvesters.tifredanti4x.jpg" alt="Project 4" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/harvesters.tifredanti4x.jpg" alt="Project 4" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Harvesters: B Offset: (-64, 3), G Offset: (-124, -14)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/icon.tifredanti4x.jpg" alt="Project 5" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/icon.tifredanti4x.jpg" alt="Project 5" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Icon: B Offset: (-49, -5), G Offset: (-90, -23)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/lady.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/lady.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Lady: B Offset: (-60, -4), G Offset: (-112, -12)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/melons.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/melons.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Melons: B Offset: (-96, -3), G Offset: (-180, -13)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/monastery.jpgredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/monastery.jpgredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Monastery: B Offset: (-6, -1), G Offset: (-3, -2)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/onion_church.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/onion_church.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Onion Church: B Offset: (-57, -10), G Offset: (-108, -36)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/sculpture.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/sculpture.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Sculpture: B Offset: (-107, 16), G Offset: (-140, 27)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/self_portrait.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/self_portrait.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Self Portrait: B Offset: (-98, -8), G Offset: (-176, -37)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/three_generations.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/three_generations.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Three Generations: B Offset: (-59, 3), G Offset: (-111, -12)</p>
             </div>
 
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/tobolsk.jpgredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/tobolsk.jpgredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Tobolsk: B Offset: (-4, -1), G Offset: (-7, -3)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/train.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/train.tifredanti4x.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Train: B Offset: (-43, -26), G Offset: (-87, -32)</p>
             </div>
         </div>
@@ -142,11 +142,11 @@ export const Project1 = () => {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/emir.tifredanti4x.jpg" alt="Project 1" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/emir.tifredanti4x.jpg" alt="Project 1" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Before Emir: B Offset: (-57, -17), G Offset: (40, -13)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/emir.tifssim.jpg" alt="Project 2" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/emir.tifssim.jpg" alt="Project 2" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">After Emir: B Offset: (-58, -17), G Offset: (-124, -42) </p>
             </div>
         </div>
@@ -155,59 +155,59 @@ export const Project1 = () => {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/cathedral.jpgssim.jpg" alt="Project 1" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/cathedral.jpgssim.jpg" alt="Project 1" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Cathedral: B Offset: (-7, -1), G Offset: (-12, -3)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/church.tifssim.jpg" alt="Project 2" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/church.tifssim.jpg" alt="Project 2" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Church: B Offset: (-33, 8), G Offset: (-58, 4) </p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/emir.tifssim.jpg" alt="Project 3" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/emir.tifssim.jpg" alt="Project 3" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Emir: B Offset: (-58, -17), G Offset: (-124, -42)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/harvesters.tifssim.jpg" alt="Project 4" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/harvesters.tifssim.jpg" alt="Project 4" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Harvesters: B Offset: (-64, 3), G Offset: (-123, -13)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/icon.tifssim.jpg" alt="Project 5" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/icon.tifssim.jpg" alt="Project 5" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Icon: B Offset: (-49, -5), G Offset: (-90, -23)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/lady.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/lady.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Lady: B Offset: (-63, -4), G Offset: (-119, -13)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/melons.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/melons.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Melons: B Offset: (-96, -3), G Offset: (-181, -12)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/monastery.jpgssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/monastery.jpgssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Monastery: B Offset: (-6, -1), G Offset: (-3, -2)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/onion_church.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/onion_church.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Onion Church: B Offset: (-57, -10), G Offset: (-108, -37)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/sculpture.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/sculpture.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Sculpture: B Offset: (-107, 16), G Offset: (-140, 27)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/self_portrait.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/self_portrait.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Self Portrait: B Offset: (-98, -8), G Offset: (-176, -36)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/three_generations.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/three_generations.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Three Generations: B Offset: (-59, 4), G Offset: (-111, -10)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/tobolsk.jpgssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/tobolsk.jpgssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Tobolsk: B Offset: (-4, 0), G Offset: (-7, -3)</p>
             </div>
             <div className="gallery-item">
-                <Image src="/CS180_images/Project1_images/train.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
+                <Image src="/CS180_images/Project1_Images/train.tifssim.jpg" alt="Project 6" width= '600' height= '400' className="w-full h-auto rounded-lg shadow-md transform hover:scale-105 transition duration-300"/>
                 <p className="text-center mt-4 text-gray-600">Train: B Offset: (-43, -26), G Offset: (-86, -33)</p>
             </div>
         </div>
