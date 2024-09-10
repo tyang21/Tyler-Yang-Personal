@@ -8,7 +8,7 @@ export const Project1 = () => {
       <h2 className="font-bold text-3xl py-4">Tyler Yang</h2>
       <h2 className="underline text-3xl"> Overview</h2>
       <p className= 'py-3 text-justify'>
-        Prokudin Gorskii was a pioneer of his time. He believed that color photography was going to take over the future. However, he knew that there wasn't way to print out the the color photos out at his time. Thus, he came up with the brilliant idea of taking three photos of the same scene using a red, green, and blue filter. An example of one of these "photos" is pictured below.
+        Prokudin Gorskii was a pioneer of his time. He believed that color photography was going to take over the future. However, he knew that there was not way to print out the the color photos out at his time. Thus, he came up with the brilliant idea of taking three photos of the same scene using a red, green, and blue filter. An example of one of these photos is pictured below.
       </p>
       <Image
         src="/cathedral.jpg"
