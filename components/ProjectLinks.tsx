@@ -7,6 +7,9 @@ export const ProjectLinks = () => {
         <Linker href="CS180\Project1" className="font-bold text-5xl hover:text-neutral-500 cursor-pointer">
                 Project 1
         </Linker>
+        <Linker href="CS180\Project2" className="font-bold text-5xl hover:text-neutral-500 cursor-pointer">
+                Project 2
+        </Linker>
     </div>
   )};
 export default ProjectLinks;
