@@ -126,13 +126,13 @@ export const Project2 = () => {
                 To the left, the high frequencies of Brown Teddy Junior (Btjr) are combined with the low frequencies of arctic. They form the amalgamation that is to the right.
             </p>
             <p className = 'py-3 text-justify'>
-                However, sometimes we can't really blend our hybrid images with our current method.
+                However, sometimes we cannot really blend our hybrid images with our current method.
             </p>
             <div className='flex flex-row justify-center'>
                 <Image src="/CS180_images/Project2_Images/pants.png" alt="Pants" width= '800' height='300'/>
             </div>
             <p className = 'py-3 italic text-justify'>
-               No matter what sigmas we set for the low and high frequency filters, we can't seem to get the white pants to shine through. This is because the contrast between the white and black pants are too high and the low frequencies of the black pants will always dominate the high frequencies of the white pants.
+               No matter what sigmas we set for the low and high frequency filters, we cannot seem to get the white pants to shine through. This is because the contrast between the white and black pants are too high and the low frequencies of the black pants will always dominate the high frequencies of the white pants.
             </p>
             <p className= 'py-3 text-justify'>
                 We can also see this effect in the frequency basis. In my example below (where I am flexing and standing in the Astor Plaza subway station of New York City), we can transform each one of these images to the frequency basis by performing a fourier transform. The most prominent frequencies are horizontal and vertically due to the amount of grids and lines in the subway station. When we apply our low-frequency filter we can clearly see that the spikes of the frequencies are more condensed towards the center or in other words less intense. Utilizing the unsharp mask filter, we can see that in the frequency basis, the spikes are augmented showing more intense frequencies all around.
@@ -156,7 +156,7 @@ export const Project2 = () => {
                 How do we go about blending these two images? We can utilize gaussian and laplacian stacks. A gaussian stack is simply convolving the gaussian filter over and over again so the image becomes smoother and smoother (lower frequencied). Then, we can conversly create our laplacian stack from our gaussian stack by subtracting the difference of the n+1 layer of the gaussian stack with the nth layer of the gaussian stack. This will give us a stack of higher and higher frequencies until we reach the original image. 
             </p>
             <p className = 'py-3 text-justify'>
-                To create our blended image, we follow the process outlined in Burt and Adelson 1983. First, we build the Laplacian Stacks for our two images (one for apple and one for orange). Then, we build a Gaussian stack out of our mask (in this case we are utilizing a binary mask, meaning that everything past the horizontal halfwaypoint will be 1 and before will be 0). We then can form a combined pyramid utilizing our mask's gaussian stack as weights. The official calculation would be LS_l = LA_l * GR_l + (1 - GR_l) * LB_l. The final step is to sum all the levels of our stack to form our final image.
+                To create our blended image, we follow the process outlined in Burt and Adelson 1983. First, we build the Laplacian Stacks for our two images (one for apple and one for orange). Then, we build a Gaussian stack out of our mask (in this case we are utilizing a binary mask, meaning that everything past the horizontal halfwaypoint will be 1 and before will be 0). We then can form a combined pyramid utilizing our mask gaussian stack as weights. The official calculation would be LS_l = LA_l * GR_l + (1 - GR_l) * LB_l. The final step is to sum all the levels of our stack to form our final image.
             </p>
             <div className='flex flex-row justify-center'>
                 <Image src="/CS180_images/Project2_Images/oraplestack_proper.png" alt="Oraple" width= '800' height='300'/>
