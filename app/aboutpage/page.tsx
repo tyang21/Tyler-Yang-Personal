@@ -2,7 +2,7 @@ import Aboutpage from '../../components/Aboutpage'
 
 export default function aboutPage() {
     return (
-        <main className="px-2 sm:px-6 my-24">
+        <main className="pb-24">
             <Aboutpage/>
         </main>
     )

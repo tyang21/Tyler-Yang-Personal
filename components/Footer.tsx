@@ -8,36 +8,39 @@ import {
 
 const Footer = () => {
     return (
-        <footer className="mx-auto px-4 sm:px-6 bg-gradient-to-r  text-sky-950  dark:from-blue-950 dark:to-indigo-950 dark:text-blue-200 ">
-            <hr className="w-full h-1 mx-auto border-2 border-blue-900 dark:border-sky-100 rounded border-dashed "></hr>
-            <div className="mx-auto  p-4 flex flex-col text-center md:flex-row md:justify-between">
-                <div>Check out my links!</div>
-                <div className="flex flex-row items-center justify-center space-x-2 mb-1">
+        <footer className="w-full px-4 pb-6 pt-2 sm:px-6 md:pb-8">
+            <div className="section-shell">
+            <div className="frost-card rounded-2xl px-4 py-4 shadow-sm md:px-6">
+            <div className="mx-auto flex flex-col text-center md:flex-row md:items-center md:justify-between">
+                <div className="text-sm font-medium text-[var(--text-soft)]">Check out my links!</div>
+                <div className="mt-2 flex flex-row items-center justify-center space-x-3 md:mt-0">
                 <a href="https://github.com/tyang21" rel="noreferrer" target="_blank">
                     <AiOutlineGithub
-                    className="hover:-translate-y-1 transition-transform cursor-pointer" 
+                    className="cursor-pointer transition hover:-translate-y-1" 
                     size={30}
                     />
                 </a>
                 <a href="https://www.linkedin.com/in/tyler-yang-4160981b3/" rel="noreferrer" target="_blank">
                     <AiOutlineLinkedin
-                    className="hover:-translate-y-1 transition-transform cursor-pointer"
+                    className="cursor-pointer transition hover:-translate-y-1"
                     size={30}
                     />
                 </a>
                 <a href="https://www.instagram.com/tyler.yang_/" rel="noreferrer" target="_blank">
                     <AiOutlineInstagram
-                    className="hover:-translate-y-1 transition-transform cursor-pointer"
+                    className="cursor-pointer transition hover:-translate-y-1"
                     size={30}
                     />
                 </a>
                 <a href="/Yang_Tyler_Resume.pdf" rel="noreferrer" target="_blank">
                     <AiOutlineFile
-                    className="hover:-translate-y-1 transition-transform cursor-pointer"
+                    className="cursor-pointer transition hover:-translate-y-1"
                     size={30}
                     />
                 </a>
                 </div>
+            </div>
+            </div>
             </div>
         </footer>
     )

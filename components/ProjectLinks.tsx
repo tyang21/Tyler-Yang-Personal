@@ -1,15 +1,31 @@
 import React from "react";
-import Linker from 'next/link'
+import Linker from "next/link";
+
 export const ProjectLinks = () => {
   return (
-    <div className = "sm:py-20 p-4 flex flex-col flex-grow items-center justify-start min-h-screen w-full">
-        <h1 className = "font-bold text-5xl py-4 underline">Projects</h1>
-        <Linker href="CS180\Project1" className="font-bold text-5xl hover:text-neutral-500 cursor-pointer">
-                Project 1
-        </Linker>
-        <Linker href="CS180\Project2" className="font-bold text-5xl hover:text-neutral-500 cursor-pointer">
-                Project 2
-        </Linker>
-    </div>
-  )};
+    <section className="section-shell pt-32 pb-14 md:pt-40 md:pb-24">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-8 text-center">
+          <h1 className="headline">Projects</h1>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <Linker
+            href="/CS180/Project1"
+            className="frost-card rounded-2xl px-6 py-5 text-center text-3xl font-bold tracking-tight transition hover:opacity-85 md:text-4xl"
+          >
+            Project 1
+          </Linker>
+          <Linker
+            href="/CS180/Project2"
+            className="frost-card rounded-2xl px-6 py-5 text-center text-3xl font-bold tracking-tight transition hover:opacity-85 md:text-4xl"
+          >
+            Project 2
+          </Linker>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default ProjectLinks;

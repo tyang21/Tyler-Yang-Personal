@@ -1,102 +1,92 @@
 "use client"
-import React, {useState} from 'react'
+
+import React, { useState } from "react"
 import { Link } from "react-scroll/modules"
-// import { useTheme } from "next-themes"
-import { RiMoonFill, RiSunLine } from "react-icons/ri"
-import { IoMdMenu, IoMdClose } from "react-icons/io"
-import Linker from 'next/link'
+import { IoMdClose, IoMdMenu } from "react-icons/io"
+import Linker from "next/link"
+import { usePathname } from "next/navigation"
 
 interface NavItem {
-    label: string
-    page: string
+  label: string
+  page: string
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-    {
-        label: "Home",
-        page: "Home",
-    },
-    { 
-        label: "AboutMe",
-        page: "about",
-    },
-    {
-        label: "Projects",
-        page: "projects",
-    },
+  { label: "Home", page: "Home" },
+  { label: "About", page: "about" },
+  { label: "Projects", page: "projects" },
 ]
 
 const Navbar = () => {
-    // const {systemTheme, theme, setTheme } = useTheme()
+  const [navbar, setNavbar] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === "/"
 
-    // const currentTheme = theme === "system" ? systemTheme : theme
-    // console.log(currentTheme)
-    const [navbar, setNavbar] = useState(false)
+  return (
+    <header className="fixed top-0 z-50 w-full px-4 sm:px-6">
+      <div className="section-shell mt-4">
+        <div className="frost-card flex items-center justify-between rounded-2xl px-4 py-3 shadow-md">
+          <h2 className="text-lg font-semibold tracking-tight md:text-xl">Tyler Yang</h2>
 
+          <button
+            aria-label="Toggle menu"
+            className="md:hidden"
+            onClick={() => setNavbar(!navbar)}
+          >
+            {navbar ? <IoMdClose size={28} /> : <IoMdMenu size={28} />}
+          </button>
 
-    return (
-        <header className="w-full mx-auto px-4 bg-sky-200 text-sky-950 shadow fixed top-0 z-50 dark:bg-indigo-900 dark:border-b dark:border-indigo-500 dark:text-blue-100">
-            <div className="justify-between md:items-center md:flex">
-                <div>
-                    <div className = "flex items-center justify-between py-3">
-                        <div className="md:py-5 md:block">
-                            <h2 className='text-2xl font-bold'>Tyler Yang</h2>
-                        </div>
-                        <div className="md:hidden">
-                            <button onClick={() => setNavbar(!navbar)}>
-                                {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30}/>}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div 
-                        className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
-                        <div className="items-center justify-center space-y-2 md:flex md:space-x-6 md:space-y-0">
-                            {NAV_ITEMS.map((item, idx) => {
-                                return (
-                                    <Link
-                                      key={idx}
-                                      to={item.page}
-                                      className={
-                                        "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
-                                      }
-                                      activeClass="active"
-                                      spy={true}
-                                      smooth={true}
-                                      offset={-100}
-                                      duration={500}
-                                      onClick={() => setNavbar(!navbar)}
-                                    >
-                                      {item.label}
-                                    </Link>
-                                  )
-                            })}
-                            <Linker href = "/aboutpage" className="block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer">
-                                    AboutThisPage
-                            </Linker>
-                            <Linker href = "/CS180" className="block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer">
-                                    CS180
-                            </Linker>
-                            {/* {currentTheme === "dark" ? (
-                                <button onClick={() => setTheme("light")} className="bg-slate-100 p-2 rounded-xl">
-                                    <RiSunLine size={25} color="black"/>
-                                </button>
-                            ) : (
-                                <button onClick={() => setTheme("dark")} className="bg-slate-100 p-2 rounded-xl">
-                                    <RiMoonFill size={25}/>
-                                </button>
-                            )
+          <div
+            className={`absolute left-4 right-4 top-[72px] rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-lg backdrop-blur md:static md:top-auto md:block md:w-auto md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
+              navbar ? "block" : "hidden"
+            }`}
+          >
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-6">
+              {NAV_ITEMS.map((item) => (
+                isHome ? (
+                  <Link
+                    key={item.page}
+                    to={item.page}
+                    activeClass="active"
+                    spy
+                    smooth
+                    offset={-96}
+                    duration={500}
+                    onClick={() => setNavbar(false)}
+                    className="cursor-pointer rounded-lg px-2 py-1 text-sm font-medium text-[var(--text-main)]/85 transition hover:bg-black/5 hover:text-[var(--text-main)] dark:hover:bg-white/10"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <Linker
+                    key={item.page}
+                    href={`/#${item.page}`}
+                    onClick={() => setNavbar(false)}
+                    className="cursor-pointer rounded-lg px-2 py-1 text-sm font-medium text-[var(--text-main)]/85 transition hover:bg-black/5 hover:text-[var(--text-main)] dark:hover:bg-white/10"
+                  >
+                    {item.label}
+                  </Linker>
+                )
+              ))}
 
-                            } */}
-                        </div>
-                    </div>
-                </div>
-                
-                
+              <Linker
+                href="/aboutpage"
+                className="rounded-lg px-2 py-1 text-sm font-medium text-[var(--text-main)]/85 transition hover:bg-black/5 hover:text-[var(--text-main)] dark:hover:bg-white/10"
+              >
+                About This Site
+              </Linker>
+              <Linker
+                href="/CS180"
+                className="rounded-lg px-2 py-1 text-sm font-medium text-[var(--text-main)]/85 transition hover:bg-black/5 hover:text-[var(--text-main)] dark:hover:bg-white/10"
+              >
+                CS180
+              </Linker>
             </div>
-        </header>
-    )
+          </div>
+        </div>
+      </div>
+    </header>
+  )
 }
 
-export default Navbar;
+export default Navbar

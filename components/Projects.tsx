@@ -1,94 +1,125 @@
-import React from 'react'
+import React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import {BsGithub} from "react-icons/bs"
-import {FaExternalLinkAlt} from "react-icons/fa"
+import { BsGithub } from "react-icons/bs"
+import { FaExternalLinkAlt } from "react-icons/fa"
 import SlideUp from "./SlideUp"
-const projects = [
-    {
-        name: "Ketchup!",
-        description: "A Quality-of-Life MacOS app that performs a topic summarization of all unread messages within groupchats. This app intelligently analyzes the iMessage database using the cutting-edge capabilities of GPT-4 to group messages together and generate concise topic titles, descriptions, and summaries. Furthermore, it allows you to seamlessly send messages back to the original group chat, complete with AI-generated suggestions, based on the topics discussed. A demoable link will be available in the near future!",
-        image: "/ketchup.png",
-        github: "https://github.com/shrey150/ketchup",
-        link: "none"
-    },
-    {
-        name: "NetflixGPT",
-        description: "A Netflix and CrunchyRoll AI chatbot companion that provides spoiler-free context-aware Q&A powered by OpenAI's GPT-4. It currently works as a chrome extension that will scrape netflix metadata so you can simply pose any question while watching any show and receive informative answers tailored to your current progress in the series! A demoable link will be available in the near future!",
-        image: "/netflixgpt.png",
-        github:"https://github.com/shrey150/NetflixGPT",
-        link: "None"
-    },
-    {
-        name: "Gitlet",
-        description: "A file version-control system inspired by git that supports many core features. The full spec is on the github page, but it is capable of initializing a repository, adding files, committing files, branching, merging, and more! If you want access to the full-spec, please contact me as it is private.",
-        image: "/gitlet.png",
-        github: "none",
-        link: "none"
-    }
+
+type Project = {
+  name: string
+  description: string
+  image: string
+  github: string
+  link: string
+  status: string
+}
+
+const projects: Project[] = [
+  {
+    name: "Ketchup!",
+    description:
+      "A macOS app that summarizes unread group messages by clustering related topics and generating concise titles and summaries with GPT-4, then helps draft responses back into iMessage.",
+    image: "/ketchup.png",
+    github: "https://github.com/shrey150/ketchup",
+    link: "none",
+    status: "Demo coming soon",
+  },
+  {
+    name: "NetflixGPT",
+    description:
+      "A spoiler-aware companion for Netflix and Crunchyroll that answers context-aware questions based on metadata and your current episode progress.",
+    image: "/netflixgpt.png",
+    github: "https://github.com/shrey150/NetflixGPT",
+    link: "none",
+    status: "Chrome extension",
+  },
+  {
+    name: "Gitlet",
+    description:
+      "A Java implementation of a Git-like version control system supporting repository initialization, staging, commits, branches, and merges.",
+    image: "/gitlet.png",
+    github: "none",
+    link: "none",
+    status: "Private spec available on request",
+  },
 ]
 
 const Projects = () => {
-    return (
-        <section id="projects">
-            <h1 className="text-center font-bold text-4xl">Projects
-            <hr className="w-16 h-1 mx-auto my-4 border-0 rounded bg-indigo-800 dark:bg-teal-200"></hr>
-            </h1>
-            <div className="flex flex-col space-y-28">
-                {projects.map((project, idx) => {
-                    const hasGithubLink = project.hasOwnProperty("github")
-                    const hasExternalLink = project.hasOwnProperty("link")
-                    const githubLink = hasGithubLink && isValidURL(project.github) ? project.github : null;
-                    const externalLink = hasExternalLink && isValidURL(project.link) ? project.link : null;
-                    return (
-                        <div key={idx}>
-                            <SlideUp offset="-300px 0px -300px 0px">
-                            <div className = "flex flex-col animate-slideUpCubiBezier animation-delay-2 md:flex-row md:space-x-12">
-                                <div className=" mt-8 md:w-1/2">
-                                    {externalLink ? (
-                                        <Link href={project.link} target="_blank">
-                                            <Image src={project.image} alt="" width={1000} height={1000} className="rounded-xl shadow-xl hover:opacity-70"/>
-                                        </Link>
-                                    ) : (<Image src={project.image} alt="" width={1000} height={1000} className="rounded-xl shadow-xl hover:opacity-70"/>)}
-                                </div>
-                                <div className="mt-12 md:w-1/2">
-                                    <h1 className="text-4xl font-bold mb-6">{project.name}</h1>
-                                    <p className="text-xl mb-4">{project.description}</p>
-                                    <div className="flex flex-row align-bottom space-x-4">
-                                        {githubLink && (
-                                            <Link href={project.github} target="_blank">
-                                                <BsGithub 
-                                                    size={30} 
-                                                    className="hover:-translate-y-1 transition-transform cursor-pointer text-gray-900 dark:text-gray-100 hover:text-gray-500 dark:hover:text-gray-400"/>
-                                            </Link>
-                                        )}
-                                        {externalLink && (
-                                            <Link href={project.link} target="_blank">
-                                                <FaExternalLinkAlt
-                                                    size={30}
-                                                    className="hover:-translate-y-1 transition-transform cursor-pointer text-gray-900 dark:text-gray-100 hover:text-gray-500 dark:hover:text-gray-400"/>
-                                            
-                                            </Link>
-                                        )}
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            </SlideUp>
-                        </div>
-                    )
-                    })}
-            </div>
-        </section>
-    )
+  return (
+    <section id="projects" className="section-shell pb-12 md:pb-24">
+      <div className="mb-10 text-center">
+        <h2 className="headline">Projects</h2>
+        <p className="subhead mx-auto mt-3 max-w-2xl">I don't do software anymore but here are some projects I've done through the years.</p>
+      </div>
+
+      <div className="flex flex-col gap-8">
+        {projects.map((project) => {
+          const githubLink = isValidURL(project.github) ? project.github : null
+          const externalLink = isValidURL(project.link) ? project.link : null
+
+          return (
+            <SlideUp key={project.name} offset="-200px 0px -100px 0px">
+              <article className="frost-card grid gap-5 rounded-3xl p-5 shadow-md md:grid-cols-[1.15fr_1fr] md:p-7">
+                <div>
+                  {externalLink ? (
+                    <Link href={externalLink} target="_blank" rel="noreferrer">
+                      <Image
+                        src={project.image}
+                        alt={project.name}
+                        width={1200}
+                        height={720}
+                        className="h-full min-h-[220px] w-full rounded-2xl border border-[var(--border)] object-cover transition hover:opacity-90"
+                      />
+                    </Link>
+                  ) : (
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      width={1200}
+                      height={720}
+                      className="h-full min-h-[220px] w-full rounded-2xl border border-[var(--border)] object-cover"
+                    />
+                  )}
+                </div>
+
+                <div className="flex flex-col justify-between">
+                  <div>
+                    <p className="inline-flex rounded-full bg-sky-100/70 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-sky-900 dark:bg-cyan-500/10 dark:text-cyan-200">
+                      {project.status}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-bold tracking-tight">{project.name}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-[var(--text-soft)] md:text-base">{project.description}</p>
+                  </div>
+
+                  <div className="mt-5 flex items-center gap-4">
+                    {githubLink && (
+                      <Link href={githubLink} target="_blank" rel="noreferrer" aria-label={`${project.name} GitHub`}>
+                        <BsGithub size={27} className="transition hover:-translate-y-0.5" />
+                      </Link>
+                    )}
+                    {externalLink && (
+                      <Link href={externalLink} target="_blank" rel="noreferrer" aria-label={`${project.name} external link`}>
+                        <FaExternalLinkAlt size={23} className="transition hover:-translate-y-0.5" />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </article>
+            </SlideUp>
+          )
+        })}
+      </div>
+    </section>
+  )
 }
+
 function isValidURL(urlString: string) {
-    try {
-      const url = new URL(urlString);
-      return url.protocol === "http:" || url.protocol === "https:";
-    } catch (_) {
-      return false;
-    }
+  try {
+    const url = new URL(urlString)
+    return url.protocol === "http:" || url.protocol === "https:"
+  } catch {
+    return false
   }
+}
 
 export default Projects
