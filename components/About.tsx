@@ -10,21 +10,21 @@ type Interest = {
 const interests: Interest[] = [
   {
     title: "Meteorology",
-    text: "I love weather so much. I like looking at radar maps. I like predicting when it snows. I am a fiend for abnormal weather events (as long as it doesn&#39;t kill me). I used to post weather report videos on my YouTube channel. Perhaps, one day, I&#39;ll start my very own weather blog. I was apart of Climate Dynamics at Berkeley for 2 years doing research under Professor William Boos. We just did a really cool joint project on Indian Monsoon Onset Prediction with UChicago. You can find a link to the press release below.",
+    text: "I love weather so much. I like looking at radar maps. I like predicting when it snows. I am a fiend for abnormal weather events (as long as it doesn't kill me). I used to post weather report videos on my YouTube channel. Perhaps, one day, I'll start my very own weather blog. I was apart of Climate Dynamics at Berkeley for 2 years doing research under Professor William Boos. We just did a really cool joint project on Indian Monsoon Onset Prediction with UChicago. You can find a link to the press release below.",
     linkLabel: "Monsoon Onset Prediction Landing Page",
     linkHref: "https://humancenteredforecasts.climate.uchicago.edu/forecasting-the-onset-of-the-indian-monsoon/",
   },
   {
     title: "Geography",
-    text: "Atlases were the most common type of book on my childhood shelves. I&#39;ve kind of lost my touch since high school but I can still list all the countries in the world.",
+    text: "Atlases were the most common type of book on my childhood shelves. I've kind of lost my touch since high school but I can still list all the countries in the world.",
   },
   {
     title: "Music",
-    text: "I&#39;ve been playing both the cello and piano for many years, but nowadays I&#39;ve really been honing my \"playing by ear\" skills. Name any song, and I&#39;ll be able to play it!",
+    text: "I've been playing both the cello and piano for many years, but nowadays I've really been honing my \"playing by ear\" skills. Name any song, and I'll be able to play it!",
   },
   {
     title: "City Landscapes",
-    text: "I am fascinated by modern architecture. I could look at and appreciate city skylines forever! I have a list of all skyscrapers in the world above 950 feet, and someday I want to visit them all. In the future, I&#39;ll list an updated spreadsheet of all the buildings I&#39;ve seen so far; but in the mean time, check out my second instagram account @si.tai_ to follow my journey!",
+    text: "I am fascinated by modern architecture. I could look at and appreciate city skylines forever! I have a list of all skyscrapers in the world above 950 feet, and someday I want to visit them all. In the future, I'll list an updated spreadsheet of all the buildings I've seen so far; but in the mean time, check out my second instagram account @si.tai_ to follow my journey!",
   },
   {
     title: "Airplanes and Airports",
@@ -71,7 +71,7 @@ const About = () => {
       <div className="frost-card mt-6 rounded-2xl p-6 shadow-sm">
         <h3 className="text-xl font-semibold tracking-tight">Gym Snapshot</h3>
         <p className="mt-2 text-sm leading-relaxed text-[var(--text-soft)] md:text-base">
-          Now that I&#39;m graduated its time to lock in. Currently losing weight so max&#39;s don&#39;t stay the same. 185 pound body weight with (probably) these lifts
+          {"Now that I'm graduated its time to lock in. Currently losing weight so max's don't stay the same. 185 pound body weight with (probably) these lifts"}
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
           {lifts.map((item) => (

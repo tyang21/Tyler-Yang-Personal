@@ -62,7 +62,7 @@ const Aboutpage = () => {
             <article className="relative rounded-xl border border-[var(--border)] bg-[var(--surface-strong)] p-4">
               <span className="absolute -left-[1.62rem] top-5 h-3 w-3 rounded-full bg-[var(--accent)] ring-4 ring-[var(--bg-start)]" />
               <p className="text-sm font-semibold text-[var(--text-main)]">V1 [Jan 2024]</p>
-              <p className="mt-2 text-sm text-[var(--text-soft)]">Inspired by Hosna Qasmei&apos;s tutorial.</p>
+              <p className="mt-2 text-sm text-[var(--text-soft)]">Inspired by Hosna Qasmei{"'"}s tutorial.</p>
               <Link
                 href="https://www.youtube.com/watch?v=7gnVzj_nMJw&ab_channel=HosnaQasmei"
                 rel="noreferrer"
