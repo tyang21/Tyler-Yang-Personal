@@ -49,7 +49,7 @@ const Projects = () => {
     <section id="projects" className="section-shell pb-12 md:pb-24">
       <div className="mb-10 text-center">
         <h2 className="headline">Projects</h2>
-        <p className="subhead mx-auto mt-3 max-w-2xl">I don't do software anymore but here are some projects I've done through the years.</p>
+        <p className="subhead mx-auto mt-3 max-w-2xl">I don&apos;t do software anymore but here are some projects I&apos;ve done through the years.</p>
       </div>
 
       <div className="flex flex-col gap-8">

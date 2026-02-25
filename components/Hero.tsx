@@ -24,9 +24,9 @@ const Hero = () => {
           <p className="mb-3 inline-flex rounded-full bg-sky-100/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-sky-900 dark:bg-cyan-500/10 dark:text-cyan-200">
             RTL Design Engineer
           </p>
-          <h1 className="headline">Hello Hello! I'm Tyler, welcome!</h1>
+          <h1 className="headline">Designing high-performance ASICs through robust RTL architecture and verification-driven execution.</h1>
           <p className="subhead mt-4 max-w-2xl">
-            Thank you for stopping by! At the top, you'll discover links to some incredibly exciting things. If you are interested in delving deeper into who I am, feel free to continue scrolling down. This page is packed with fantastic content! Additionally, you'll find icons at the bottom of the page that showcase my resume and social media profiles. If you prefer a different theme, simply click the button located in the bottom right corner to activate dark or light mode.
+            Thank you for stopping by! At the top, you&apos;ll discover links to some incredibly exciting things. If you are interested in delving deeper into who I am, feel free to continue scrolling down. This page is packed with fantastic content! Additionally, you&apos;ll find icons at the bottom of the page that showcase my resume and social media profiles. If you prefer a different theme, simply click the button located in the bottom right corner to activate dark or light mode.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">

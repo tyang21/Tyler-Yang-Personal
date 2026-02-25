@@ -27,5 +27,8 @@
   },
   "devDependencies": {
     "@types/react-scroll": "^1.8.7"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
