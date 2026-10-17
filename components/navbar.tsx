@@ -81,6 +81,13 @@ const Navbar = () => {
               >
                 CS180
               </Linker>
+              <Linker
+                href="/town"
+                onClick={() => setNavbar(false)}
+                className="rounded-lg px-2 py-1 text-sm font-medium text-[var(--text-main)]/85 transition hover:bg-black/5 hover:text-[var(--text-main)] dark:hover:bg-white/10"
+              >
+                Town
+              </Linker>
             </div>
           </div>
         </div>

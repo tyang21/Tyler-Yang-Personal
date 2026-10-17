@@ -145,6 +145,58 @@ body::after {
   }
 }
 
+/* Original pixel-town construction animation used on the town study page. */
+.pixel-block {
+  image-rendering: pixelated;
+  box-shadow: inset -5px -5px 0 rgba(61, 42, 27, 0.18), inset 4px 4px 0 rgba(255, 245, 205, 0.24);
+}
+
+.pixel-worker {
+  animation: pixel-worker-step 0.7s steps(2, end) infinite;
+}
+
+.delay-1 {
+  animation-delay: -0.35s;
+}
+
+@keyframes pixel-worker-step {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* The town is an original, illustrated soft-diorama scene rather than a copied game asset. */
+.town-diorama { isolation: isolate; }
+.town-place { cursor: pointer; transform-box: fill-box; transform-origin: center; transition: filter 180ms ease, transform 180ms ease; }
+.town-place:hover { filter: brightness(1.08) drop-shadow(0 9px 7px rgba(43, 84, 53, .22)); }
+.town-tree { transform-box: fill-box; transform-origin: bottom; animation: tree-sway 3.8s ease-in-out infinite alternate; }
+.town-walker-one { animation: walk-one 10s linear infinite; }
+.town-walker-two { animation: walk-two 12s linear infinite; }
+.town-walker-three { animation: walk-three 9s linear infinite; }
+.cloud { animation: cloud-drift 19s linear infinite; }
+.cloud-two { animation-delay: -8s; }
+@keyframes tree-sway { from { transform: rotate(-1deg); } to { transform: rotate(1.5deg); } }
+@keyframes cloud-drift { from { transform: translateX(-25px); } to { transform: translateX(55px); } }
+@keyframes walk-one { 0% { transform: translate(238px, 272px); } 48% { transform: translate(458px, 297px); } 100% { transform: translate(678px, 245px); } }
+@keyframes walk-two { 0% { transform: translate(695px, 279px); } 50% { transform: translate(463px, 300px); } 100% { transform: translate(223px, 364px); } }
+@keyframes walk-three { 0% { transform: translate(380px, 397px); } 50% { transform: translate(459px, 307px); } 100% { transform: translate(512px, 184px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .town-tree, .town-walker-one, .town-walker-two, .town-walker-three, .cloud { animation: none; }
+}
+
+.town-pulse { animation: town-pulse 1.8s ease-in-out infinite; }
+@keyframes town-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(213,100,82,.45); } 50% { box-shadow: 0 0 0 12px rgba(213,100,82,0); } }
+
+.idle-town { overflow: hidden; border: 5px solid #fff6de; border-radius: 28px; background: #f7f0dd; box-shadow: 0 20px 44px rgba(45, 76, 52, .18); }
+.idle-hud { display: flex; justify-content: space-between; gap: 14px; padding: 17px 21px; color: #fff8e9; background: #315a42; }
+.idle-hud b, .idle-hud span { display: block; }.idle-hud b { font-size: .95rem; }.idle-hud span { margin-top: 4px; color: #d6e5b6; font-size: .76rem; }
+.idle-welcome { cursor: pointer; padding: 12px 20px; background: #f1c775; color: #593e22; font-size: .88rem; }.idle-welcome b { float: right; }
+.idle-layout { display: grid; grid-template-columns: minmax(0, 1fr) 305px; }.idle-map { min-height: 360px; background: #b9d995; }.idle-map canvas { display: block; width: 100%; height: auto; cursor: crosshair; image-rendering: pixelated; }
+.idle-panel { min-height: 500px; padding: 18px; border-left: 1px solid #d3ddc9; background: #fffbf1; }.idle-tabs { display: flex; gap: 4px; margin: -18px -18px 18px; padding: 10px; background: #edf1df; }.idle-tabs button { flex: 1; border: 0; border-radius: 8px; padding: 8px 4px; background: transparent; color: #48634f; font-size: .72rem; font-weight: 700; }.idle-tabs button.active { background: #fffaf0; box-shadow: 0 1px 5px rgba(45, 76, 52, .16); }
+.idle-panel h2 { margin: 0 0 10px; font-size: 1.3rem; }.idle-panel h3 { margin: 22px 0 6px; font-size: .78rem; text-transform: uppercase; letter-spacing: .09em; color: #6d915a; }.idle-panel p { color: #5a7060; font-size: .85rem; line-height: 1.55; }.idle-panel button:not(.idle-person) { border: 0; border-radius: 9px; padding: 9px 11px; background: #557c4d; color: white; font-weight: 700; }.idle-bar { overflow: hidden; height: 9px; border-radius: 999px; background: #d9e5d3; }.idle-bar i { display: block; height: 100%; border-radius: inherit; background: #7ba959; }.idle-person { display: flex; align-items: center; width: 100%; border: 0; border-bottom: 1px solid #e1e8dc; padding: 10px 1px; color: #34503e; background: transparent; text-align: left; font-weight: 600; }.idle-person i { width: 10px; height: 10px; margin-right: 8px; border-radius: 50%; }.idle-person span { margin-left: auto; color: #829185; font-size: .7rem; font-weight: 400; }.idle-log { border-left: 3px solid #bdd18d; padding-left: 9px; }
+.dark .idle-panel { background: #19332a; border-color: #ffffff1f; }.dark .idle-tabs { background: #244536; }.dark .idle-tabs button { color: #ccdfc5; }.dark .idle-tabs button.active { background: #315441; }.dark .idle-panel p { color: #cedecb; }
+@media (max-width: 850px) { .idle-hud { display: block; }.idle-hud > div + div { margin-top: 12px; }.idle-layout { grid-template-columns: 1fr; }.idle-panel { min-height: auto; border-top: 1px solid #d3ddc9; border-left: 0; } }
+
 ::selection {
   background: rgba(14, 165, 233, 0.25);
 }
