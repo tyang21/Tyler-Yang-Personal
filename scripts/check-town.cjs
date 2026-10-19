@@ -23,12 +23,21 @@ assert.ok(bridge.some(p => world.water(p.x, p.y)))
 assert.ok(bridge.filter(p => world.water(p.x, p.y)).every(p => p.y === 22 || p.y === 23), 'River crossed outside the bridge')
 // Exercise the complete renderer with a canvas context, not just the A* routine.
 const gradient = { addColorStop() {} }
-const context = new Proxy({}, { get: (_, key) => key === 'measureText' ? text => ({ width: text.length * 6 }) : key === 'createRadialGradient' ? () => gradient : () => {}, set: () => true })
+const canvas = { width: 1400, height: 900 }
+let transform, darkness
+const context = new Proxy({}, { get: (_, key) => {
+  if (key === 'canvas') return canvas
+  if (key === 'measureText') return text => ({ width: text.length * 6 })
+  if (key === 'createRadialGradient') return () => gradient
+  if (key === 'setTransform') return (...values) => { transform = values }
+  if (key === 'fillRect') return (...values) => { if (values[2] === canvas.width && values[3] === canvas.height) darkness = { rect: values, transform } }
+  return () => {}
+}, set: () => true })
 global.document = { createElement: () => ({ getContext: () => context }) }
 const save = world.migrateSave({ version: 2, villagers: [{ ...world.PEOPLE[0], color: '#b05060' }] })
 assert.equal(save.villagers.length, 12, 'Older save lost residents')
 assert.equal(save.villagers[0].color, '#b05060', 'Migration overwrote resident data')
-assert.equal(save.projects.length, 10)
+assert.equal(save.projects.length, 12)
 const start = new Date('2026-10-19T10:00:00Z')
 const renderer = new VillageRenderer(start, save)
 assert.equal(renderer.actors.length, 12, 'Duplicate resident sprites')
@@ -51,4 +60,8 @@ for (const date of ['2026-01-15T17:00:00Z', '2026-04-15T14:00:00Z', '2026-07-15T
   const scene = new VillageRenderer(new Date(date), save)
   scene.update(1, new Date(date), save); scene.render(context, 'nina', true)
 }
+const completed = { ...save, projects: Array(world.PROJECTS.length).fill(650) }
+const finishedScene = new VillageRenderer(start, completed)
+finishedScene.update(1, start, completed); finishedScene.render(context, 'mara', true)
+assert.deepEqual(darkness, { rect: [0, 0, 1400, 900], transform: [1, 0, 0, 1, 0, 0] }, 'Night overlay followed the camera instead of covering the viewport')
 console.log(JSON.stringify({ connectedRoutes: routes, villagers: renderer.actors.length, frames: 20000, movementSteps: moved, buildingEntries: entered, seasonalRenders: 4, saveMigration: 'passed' }, null, 2))

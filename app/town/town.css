@@ -61,6 +61,47 @@
 .village-panel-content { padding: 24px 22px; }
 .village-panel-content h2 { margin: 0 0 16px; font-family: Georgia, serif; font-weight: 400; font-size: 27px; line-height: 1.15; letter-spacing: -.6px; white-space: pre-line; }
 .village-description { color: #89907b; font-size: 11px; line-height: 1.9; }
+.village-mind-status { margin: 12px 0 18px; font-size: 10px; line-height: 1.6; color: #71835e; }
+.village-town-event { margin: 16px 0; padding: 14px; border: 1px solid var(--v-rule); border-radius: 8px; background: #f2efdf; }
+.village-town-event h3 { margin: 7px 0; font-size: 12px; font-weight: 600; }
+.village-town-event > p:not(.village-eyebrow) { font-size: 11px; line-height: 1.8; color: #7c886c; }
+.village-town-event small { display: block; margin-top: 10px; font-size: 10px; color: #879273; }
+.village-thought { margin: 18px 0; padding-left: 13px; border-left: 2px solid #b7c69b; color: #71815e; font-family: Georgia, serif; font-size: 13px; line-height: 1.8; }
+.village-memories { margin-top: 20px; }
+.village-memories > p:not(.village-eyebrow) { font-size: 10px; line-height: 1.8; color: #7c886c; }
+.village-memories time { display: block; font-size: 9px; color: #9ba388; }
+.village-council-link { margin-top: 14px; color: #63794e; font-size: 10px; text-align: left; }
+.village-work-button:disabled { opacity: .6; cursor: default; }
+.village-needs { margin: 16px 0; }
+.village-needs label, .village-build-meter { display: flex; gap: 8px; align-items: center; margin: 8px 0; color: #7c886c; font-size: 10px; }
+.village-needs label > span { min-width: 30px; text-align: right; }
+.village-needs meter, .village-build-meter meter { flex: 1; min-width: 35px; height: 12px; accent-color: #879d6a; }
+.village-connections { margin-top: 20px; }
+.village-connections > button { display: flex; justify-content: space-between; gap: 8px; width: 100%; padding: 7px 0; text-align: left; font-size: 10px; }
+.village-connections strong { font-weight: 500; }
+.village-connections span { color: #8c967b; font-size: 9px; }
+.village-council-list { max-height: 850px; overflow-y: auto; padding-right: 4px; }
+.village-proposal { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--v-rule); }
+.village-proposal h3 { margin: 10px 0 5px; font-family: Georgia, serif; font-size: 19px; font-weight: 400; }
+.village-proposal > p { color: #7b886c; font-size: 11px; line-height: 1.8; }
+.village-proposal-status { color: #7b825c; font-family: ui-monospace, monospace; font-size: 9px; }
+.village-proposal-building, .village-proposal-completed { color: #5e8051; }
+.village-proposal-deferred { color: #9b805d; }
+.village-proposal .village-proposal-by { margin: 0 0 13px; font-size: 9px; }
+.village-proposal-by button { text-decoration: underline; text-underline-offset: 2px; }
+.village-proposal .village-proposal-concern { color: #9a8569; }
+.village-proposal .village-proposal-revision, .village-vote-result { padding: 8px; border-radius: 4px; background: #ececd9; }
+.village-proposal details { margin: 16px 0; }
+.village-proposal summary { cursor: pointer; color: #79876a; font-size: 10px; }
+.village-opinions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; margin-top: 12px; }
+.village-opinions button { display: flex; justify-content: space-between; gap: 5px; text-align: left; font-size: 9px; }
+.village-opinions em { font-size: 8px; font-style: normal; color: #96977a; }
+.village-opinions em[data-stance=for] { color: #668051; }
+.village-opinions em[data-stance=against] { color: #a28162; }
+.village-debate { margin-top: 20px; }
+.village-debate blockquote { margin: 12px 0; padding-left: 10px; border-left: 2px solid #d2d6bb; color: #7a866a; font-size: 11px; line-height: 1.8; }
+.village-debate strong { font-weight: 600; }
+.village-debate small { display: block; margin-top: 5px; color: #9a9d83; font-size: 9px; }
 .village-day-stats { display: flex; gap: 0; margin: 23px 0; padding: 16px 0; border-top: 1px solid var(--v-rule); border-bottom: 1px solid var(--v-rule); }
 .village-day-stats > div { flex: 1; text-align: center; border-left: 1px solid var(--v-rule); }
 .village-day-stats > div:first-child { border-left: 0; }
@@ -99,6 +140,7 @@
 .village-roster strong { display: block; font-size: 10px; font-weight: 550; }
 .village-roster small { display: block; font-size: 9px; color: #949c83; margin-top: 3px; }
 .village-roster em { margin-left: auto; font-style: normal; color: #a5ae94; }
+.village-log { max-height: 680px; overflow-y: auto; padding-right: 5px; }
 .village-log article { border-left: 1px solid #cad5b3; margin-top: 18px; padding-left: 13px; }
 .village-log time { font-family: ui-monospace, monospace; font-size: 9px; color: #9ba388; }
 .village-log p { font-size: 12px; line-height: 1.7; margin-top: 7px; color: #7a866b; }

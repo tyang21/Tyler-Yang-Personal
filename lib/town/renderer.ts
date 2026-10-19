@@ -1,4 +1,4 @@
-import { BUILDINGS, Building, COLS, HEIGHT, PEOPLE, Plan, Point, ROWS, Season, TILE, TREES, TownSave, Villager, WIDTH, findPath, key, paths, plan, random, seasonAt, solarAltitude, walkable, water, weatherAt } from "./world"
+import { BUILDINGS, Building, COLS, DESTINATIONS, HEIGHT, PEOPLE, Plan, Point, ROWS, Season, TILE, TREES, TownSave, Villager, WIDTH, findPath, key, paths, plan, random, seasonAt, solarAltitude, walkable, water, weatherAt } from "./world"
 
 type Actor = { villager: Villager; x: number; y: number; tile: Point; route: Point[]; goal: Plan; inside: boolean; walking: boolean; direction: string; gait: number; pause: number; trips: number }
 export type ResidentView = { id: string; x: number; y: number; walking: boolean; indoors: boolean; activity: string; place: string }
@@ -89,14 +89,16 @@ export class VillageRenderer {
   private save: TownSave
   private elapsed = 0
   private slot = ""
+  private projectSignature = ""
   private objects: { y: number; draw: (c: CanvasRenderingContext2D) => void }[] = []
   constructor(now: Date, save: TownSave) {
     this.now = now; this.save = save; this.season = seasonAt(now)
     this.ground = document.createElement("canvas"); this.ground.width = WIDTH; this.ground.height = HEIGHT
     this.makeGround()
     this.actors = save.villagers.map((v, i) => {
-      const goal = plan(v, now, save.forced), start = goal.indoors ? goal.target : { x: [18, 28, 38, 50][i % 4], y: i % 2 ? 22 : 32 }
-      return { villager: v, x: center(start.x), y: center(start.y), tile: start, route: [], goal, inside: goal.indoors, walking: false, direction: "down", gait: 0, pause: i * 1.5, trips: 0 }
+      const goal = plan(v, now, save.forced, save.chapter), agent = save.agents[v.id], start = DESTINATIONS[agent?.location] || (goal.indoors ? goal.target : { x: [18, 28, 38, 50][i % 4], y: i % 2 ? 22 : 32 })
+      const inside = goal.indoors && start.x === goal.target.x && start.y === goal.target.y
+      return { villager: v, x: center(start.x), y: center(start.y), tile: start, route: [], goal, inside, walking: false, direction: "down", gait: 0, pause: i * 1.5, trips: 0 }
     })
     for (const actor of this.actors) if (!actor.inside) this.routeTo(actor, actor.goal.target)
   }
@@ -116,7 +118,7 @@ export class VillageRenderer {
     for (const tile of Array.from(paths)) {
       const [x, y] = tile.split(",").map(Number), px = x * TILE, py = y * TILE
       if (water(x, y)) continue
-      rect(c, "#c4aa7d", px, py, TILE, TILE)
+      rect(c, this.save.projects[7] >= 650 ? "#aaa993" : "#c4aa7d", px, py, TILE, TILE)
       if (paths.has(key(x, y - 1))) rect(c, "#dac496", px + 1, py, 14, TILE)
       else { rect(c, "#a68e63", px, py, TILE, 2); rect(c, "#decb9e", px + 1, py + 2, 14, 14) }
       if (!paths.has(key(x - 1, y))) rect(c, "#a68e63", px, py, 2, TILE)
@@ -124,6 +126,7 @@ export class VillageRenderer {
       if (!paths.has(key(x, y + 1))) rect(c, "#a68e63", px, py + 14, TILE, 2)
       const n = random(`stone:${x}:${y}`)
       rect(c, "#bba37b", px + 3 + n * 6, py + 5, 3, 1); rect(c, "#efe0b3", px + 9, py + 10, 2, 1)
+      if (this.save.projects[7] >= 650) { rect(c, "#9b9f8a", px + 1, py + 2, 12, 5); rect(c, "#b9baa2", px + 5, py + 9, 10, 5); rect(c, "#d7d6bd", px + 2, py + 2, 10, 1) }
     }
     // The bridge is part of the very same path grid used by A*.
     for (let x = 52 * TILE; x < 57 * TILE; x += 5) { rect(c, "#705b42", x, 22 * TILE - 2, 5, 37); rect(c, "#ba9365", x, 22 * TILE, 4, 32); rect(c, "#d2ae7e", x, 22 * TILE, 1, 32) }
@@ -164,12 +167,13 @@ export class VillageRenderer {
   }
   update(dt: number, now: Date, save: TownSave) {
     this.now = now; this.save = save; this.elapsed += dt
-    if (seasonAt(now) !== this.season) { this.season = seasonAt(now); this.makeGround() }
-    const slot = `${Math.floor(now.getTime() / 600000)}:${JSON.stringify(save.forced)}`
+    const signature = save.projects.map(p => p >= 650 ? "1" : "0").join("")
+    if (seasonAt(now) !== this.season || signature !== this.projectSignature) { this.season = seasonAt(now); this.projectSignature = signature; this.makeGround() }
+    const slot = `${Math.floor(now.getTime() / 60000)}:${save.chapter?.id}:${JSON.stringify(save.forced)}`
     if (slot !== this.slot) {
       this.slot = slot
       for (const actor of this.actors) {
-        const next = plan(actor.villager, now, save.forced)
+        const next = plan(actor.villager, now, save.forced, save.chapter)
         const changed = next.target.x !== actor.goal.target.x || next.target.y !== actor.goal.target.y || next.indoors !== actor.goal.indoors
         actor.goal = next
         if (changed) { actor.pause = 0; actor.inside = false; if (!actor.route.length) this.routeTo(actor, next.target) }
@@ -235,6 +239,11 @@ export class VillageRenderer {
       c.strokeStyle = "#f6d287"; c.lineWidth = 2; c.setLineDash([3, 4]); c.beginPath(); c.moveTo(actor.x, actor.y); actor.route.forEach(p => c.lineTo(center(p.x), center(p.y))); c.stroke(); c.setLineDash([])
     }
     this.objects.sort((a, b) => a.y - b.y).forEach(o => o.draw(c))
+    // The first completed community project grows in the actual work-site beds.
+    if (this.save.projects[0] >= 650) for (let bed = 0; bed < 3; bed++) for (let row = 0; row < 3; row++) for (let col = 0; col < 3; col++) {
+      flower(c, 41 * TILE + bed * 29 + 5 + col * 6, 26 * TILE + 7 + row * 9, ["#e4a2b1", "#f5d484", "#c9afd9"][bed])
+    }
+    this.drawCommunityProjects(c)
     for (const b of BUILDINGS) if (b.kind !== "school") {
       const sx = (b.x + b.w - 1.2) * TILE, sy = b.y * TILE - 16
       for (let i = 0; i < 3; i++) { const phase = (this.elapsed * 6 + i * 9) % 28; rect(c, `rgba(234,228,201,${.28 * (1 - phase / 28)})`, sx + Math.sin(phase / 10) * 4, sy - phase, 4 + phase / 8, 3 + phase / 8) }
@@ -247,14 +256,68 @@ export class VillageRenderer {
       c.strokeStyle = wet.snow ? "#e7eddb80" : "#d3dcd280"; c.lineWidth = wet.snow ? 2 : 1
       for (let i = 0; i < 180; i++) { const x = (i * 61 + this.elapsed * (wet.snow ? 3 : -19) + WIDTH * 100) % WIDTH, y = (i * 47 + this.elapsed * (wet.snow ? 14 : 160)) % HEIGHT; c.beginPath(); c.moveTo(x, y); c.lineTo(x - 2, y + (wet.snow ? 2 : 8)); c.stroke() }
     }
-    rect(c, `rgba(26,35,53,${night})`, 0, 0, WIDTH, HEIGHT)
+    // Darkness covers the viewport, including ground exposed by zooming or panning.
+    // Restore the camera transform afterward so lamps stay anchored in the town.
+    c.save()
+    c.setTransform(1, 0, 0, 1, 0, 0)
+    c.fillStyle = `rgba(26,35,53,${night})`
+    c.fillRect(0, 0, c.canvas.width, c.canvas.height)
+    c.restore()
     if (night > .1) {
-      const lights: Point[] = [{ x: 18, y: 22 }, { x: 38, y: 22 }, { x: 28, y: 30 }, { x: 50, y: 22 }]
+      const lights: Point[] = [{ x: 18, y: 22 }, { x: 38, y: 22 }, { x: 28, y: 30 }, { x: 50, y: 22 }, ...(this.save.projects[1] >= 650 ? [{ x: 18, y: 32 }, { x: 50, y: 32 }, { x: 2, y: 9 }] : [])]
       for (const p of lights) {
         const x = center(p.x) - 12, y = center(p.y)
         const glow = c.createRadialGradient(x, y - 17, 1, x, y - 17, 48); glow.addColorStop(0, "rgba(255,214,126,.27)"); glow.addColorStop(1, "rgba(255,214,126,0)"); c.fillStyle = glow; c.fillRect(x - 48, y - 65, 96, 96)
         rect(c, "#555343", x, y - 22, 2, 23); rect(c, "#eed4a0", x - 3, y - 27, 8, 8); rect(c, "#846b4a", x - 4, y - 29, 10, 2)
       }
+    }
+  }
+  private drawCommunityProjects(c: CanvasRenderingContext2D) {
+    const done = (index: number) => this.save.projects[index] >= 650
+    if (done(2)) { // Picnic tables, off the walkable lanes.
+      for (const [x, y] of [[15 * TILE, 27 * TILE], [35 * TILE, 30 * TILE]]) {
+        rect(c, "#6f6145", x + 3, y + 8, 3, 12); rect(c, "#6f6145", x + 24, y + 8, 3, 12)
+        rect(c, "#c49a63", x, y, 31, 9); rect(c, "#a47e4f", x - 2, y + 12, 35, 4)
+      }
+    }
+    if (done(3)) {
+      const x = 35 * TILE, y = 28 * TILE
+      oval(c, "#8c998a", x, y, 34, 18); oval(c, "#d1cdb0", x + 2, y - 2, 30, 15); oval(c, "#7ea9a9", x + 5, y, 24, 10)
+      rect(c, "#c9c5a8", x + 14, y - 16, 5, 21); rect(c, "#9bc8c5", x + 15, y - 22, 3, 9)
+    }
+    if (done(4)) {
+      rect(c, "#617e67", 7 * TILE, 26 * TILE, 66, 41); rect(c, "#aed3b89e", 7 * TILE + 3, 26 * TILE + 3, 60, 35)
+      for (let i = 0; i < 4; i++) rect(c, "#e2dfba", 7 * TILE + i * 20, 26 * TILE + 2, 2, 38)
+      rect(c, "#ddd5ad", 7 * TILE, 26 * TILE + 19, 66, 2)
+    }
+    if (done(5)) {
+      const x = 42 * TILE, y = 30 * TILE
+      rect(c, "#b78b59", x, y, 78, 14); rect(c, "#e1cca0", x + 4, y - 23, 3, 23); rect(c, "#e1cca0", x + 70, y - 23, 3, 23)
+      rect(c, "#8c6f62", x - 4, y - 29, 86, 7); rect(c, "#ab8271", x + 9, y - 36, 60, 8)
+    }
+    if (done(6)) {
+      const x = 35 * TILE, y = 16 * TILE
+      rect(c, "#bca783", x, y - 57, 27, 57); rect(c, "#806855", x - 3, y - 63, 33, 7)
+      oval(c, "#f0e2bd", x + 5, y - 46, 17, 17); rect(c, "#5f6558", x + 13, y - 43, 1, 7); rect(c, "#5f6558", x + 13, y - 37, 6, 1)
+    }
+    if (done(8)) {
+      const x = 60 * TILE, y = 41 * TILE
+      rect(c, "#baa780", x - 7, y - 34, 16, 35); rect(c, "#857466", x - 10, y - 39, 22, 6)
+      c.save(); c.translate(x, y - 33); c.rotate(this.elapsed * .25)
+      for (let i = 0; i < 4; i++) { c.rotate(Math.PI / 2); rect(c, "#ded6b5", 2, -3, 26, 5); rect(c, "#927e5e", 0, -1, 29, 1) } c.restore()
+    }
+    if (done(9)) {
+      const x = 35 * TILE, y = 25 * TILE
+      rect(c, "#a6a48d", x, y + 4, 19, 9); rect(c, "#c9c5a9", x - 2, y + 2, 23, 4)
+      rect(c, "#809483", x + 5, y - 16, 9, 19); oval(c, "#9eb19a", x + 5, y - 24, 9, 9)
+    }
+    if (done(10)) for (const x of [52, 56]) for (let y = 25; y < 32; y++) {
+      rect(c, "#6c8b54", x * TILE + 4, y * TILE, 2, 12); rect(c, "#9aac70", x * TILE + 7, y * TILE - 2, 2, 13)
+    }
+    if (done(11)) {
+      const x = 15 * TILE, y = 17 * TILE
+      rect(c, "#967652", x, y, 20, 25); rect(c, "#eadab1", x + 2, y + 2, 16, 19)
+      for (let i = 0; i < 5; i++) rect(c, ["#c27c6a", "#789c8a", "#d7b46a"][i % 3], x + 3 + i * 3, y + 4, 2, 13)
     }
   }
 }

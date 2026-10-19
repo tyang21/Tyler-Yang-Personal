@@ -8,9 +8,31 @@ export type Season = "Spring" | "Summer" | "Autumn" | "Winter"
 export type Building = { id: string; name: string; x: number; y: number; w: number; h: number; wall: string; roof: string; kind: "home" | "library" | "market" | "school" | "workshop"; door: Point }
 export type Villager = { id: string; name: string; pronouns: string; job: string; home: string; traits: string[]; interests: string[]; birth: string; color: string; wake: number; bed: number }
 export type Plan = { place: string; label: string; target: Point; indoors: boolean; working: boolean }
-export type TownSave = { version: number; cursor: string; villagers: Villager[]; affinity: Record<string, number>; projects: number[]; log: { at: string; text: string; kind: string }[]; seed: number; forced: Record<string, number> }
+export type Decision = { villagerId: string; place: string; activity: string; thought: string; partnerId: string | null; projectId: string | null; purpose: "work" | "social" | "rest" | "explore" | "civic" }
+export type TownChapter = {
+  id: string; at: string; until: string
+  headline: string; summary: string
+  event: { title: string; description: string; place: string; participantIds: string[]; proposalId: string | null }
+  decisions: Decision[]
+}
+export type Memory = { at: string; text: string }
+export type AgentState = { energy: number; social: number; location: string; destination: string; arrivesAt: number }
+export type Relationship = { familiarity: number; trust: number; affection: number; lastInteraction: number }
+export type CivicArgument = { at: string; speakerId: string; listenerId: string; kind: "benefit" | "cost" | "compromise"; text: string; shift: number }
+export type Proposal = {
+  id: string; projectIndex: number; proposerId: string; createdAt: string
+  status: "discussion" | "approved" | "building" | "completed" | "deferred"
+  opinions: Record<string, number>; arguments: CivicArgument[]; discussionCount: number; revised: boolean
+  votes: Record<string, boolean | null>; votedAt: string | null; retryAt: number
+}
+export type TownSave = {
+  version: number; cursor: string; villagers: Villager[]; affinity: Record<string, number>; projects: number[]
+  log: { at: string; text: string; kind: string }[]; seed: number; forced: Record<string, number>
+  chapter: TownChapter | null; memories: Record<string, Memory[]>; agents: Record<string, AgentState>
+  relationships: Record<string, Relationship>; civic: { proposals: Proposal[]; activeProjectId: string | null }
+}
 export const SAVE_KEY = "tyler-idle-town-v2"
-export const PROJECTS = ["Village flower beds", "Street lamps", "Picnic tables", "Town fountain", "Greenhouse", "Bandstand", "Clock tower", "Cobbled roads", "Windmill", "Town statue"]
+export const PROJECTS = ["Village flower beds", "Street lamps", "Picnic tables", "Town fountain", "Greenhouse", "Bandstand", "Clock tower", "Cobbled roads", "Windmill", "Town statue", "Creek restoration", "Library reading room"]
 
 export function random(key: string) {
   let h = 2166136261
@@ -126,11 +148,16 @@ export function weatherAt(date: Date, seed: number) {
   const temp = Math.round(53 + 25 * Math.cos((yearDay - 202) * Math.PI * 2 / 365) + (noise - .5) * 12 + 5 * Math.cos((p.hour - 15) * Math.PI / 12))
   return { label: noise < .14 ? "Storm" : noise < .32 ? "Rain" : noise < .5 ? "Overcast" : noise < .72 ? "Partly cloudy" : "Clear", temp, snow: temp < 33 && noise < .32 }
 }
-export function plan(v: Villager, date: Date, forced: Record<string, number>): Plan {
+export function plan(v: Villager, date: Date, forced: Record<string, number>, chapter?: TownChapter | null): Plan {
   const p = localParts(date), hour = p.hour + p.minute / 60, weekday = !["Saturday", "Sunday"].includes(p.weekday)
   const result = (place: string, label: string, indoors = false, working = false) => ({ place, label, target: DESTINATIONS[place] || DESTINATIONS[v.home], indoors, working })
   if (forced[v.id] > date.getTime()) return result("Main Street", "Reluctantly helping the crew", false, true)
   if (hour < v.wake || hour >= v.bed) return result(v.home, "Sleeping at home", true)
+  const decision = chapter && date.getTime() >= Date.parse(chapter.at) && date.getTime() < Date.parse(chapter.until) ? chapter.decisions.find(d => d.villagerId === v.id) : null
+  if (decision && Object.prototype.hasOwnProperty.call(DESTINATIONS, decision.place)) {
+    const indoors = BUILDINGS.some(b => b.name === decision.place || (b.kind !== "home" && b.door === DESTINATIONS[decision.place]))
+    return result(decision.place, decision.activity, indoors, decision.purpose === "work")
+  }
   if (holidayAt(date) && hour >= 16 && hour < 21) return result("Town Square", `Enjoying ${holidayAt(date)}`)
   if (hour < v.wake + .7) return result(v.home, "Breakfast and a slow start", true)
   const lunch = 12 + Math.floor(random(v.id) * 3) * .25
@@ -149,10 +176,16 @@ export function plan(v: Villager, date: Date, forced: Record<string, number>): P
   return result(...choice)
 }
 
-export function freshSave(): TownSave {
-  return { version: 2, cursor: new Date().toISOString(), villagers: PEOPLE, affinity: {}, projects: Array(PROJECTS.length).fill(0), log: [{ at: new Date().toISOString(), text: "A new chapter in the village begins.", kind: "town" }], seed: 42017, forced: {} }
+export function freshSave(now = new Date()): TownSave {
+  const beginning = new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString()
+  return { version: 4, cursor: beginning, villagers: PEOPLE, affinity: {}, projects: Array(PROJECTS.length).fill(0), log: [{ at: beginning, text: "A new chapter in the village begins.", kind: "town" }], seed: 42017, forced: {}, chapter: null, memories: {}, agents: Object.fromEntries(PEOPLE.map(v => [v.id, { energy: 65, social: 35, location: v.home, destination: v.home, arrivesAt: 0 }])), relationships: {}, civic: { proposals: [], activeProjectId: null } }
 }
 export function migrateSave(value: Partial<TownSave> | null): TownSave {
   const fresh = freshSave()
-  return { ...fresh, ...value, villagers: PEOPLE.map(p => ({ ...p, ...value?.villagers?.find(v => v.id === p.id) })), projects: fresh.projects.map((p, i) => value?.projects?.[i] ?? p), forced: value?.forced || {}, log: value?.log || fresh.log }
+  const projects = fresh.projects.map((p, i) => Number.isFinite(value?.projects?.[i]) ? Math.max(0, Math.min(650, value!.projects![i])) : p)
+  const relationships = { ...value?.relationships }
+  for (const [ids, affinity] of Object.entries(value?.affinity || {})) if (!relationships[ids]) relationships[ids] = { familiarity: Math.max(0, Math.min(100, affinity)), trust: affinity / 2, affection: affinity / 2, lastInteraction: 0 }
+  const civic = value?.version === 4 && value.civic ? JSON.parse(JSON.stringify(value.civic)) as TownSave["civic"] : { proposals: projects.flatMap((points, i): Proposal[] => points > 0 ? [{ id: `project:${i}`, projectIndex: i, proposerId: PEOPLE[i % PEOPLE.length].id, createdAt: value?.cursor || fresh.cursor, status: points >= 650 ? "completed" : "approved", opinions: {}, arguments: [], discussionCount: 0, revised: false, votes: {}, votedAt: null, retryAt: 0 }] : []), activeProjectId: null }
+  if (!civic.activeProjectId) { const underway = civic.proposals.find(p => p.status === "approved"); if (underway) { underway.status = "building"; civic.activeProjectId = underway.id } }
+  return { ...fresh, ...value, version: 4, villagers: PEOPLE.map(p => ({ ...p, ...value?.villagers?.find(v => v.id === p.id) })), projects, forced: value?.forced || {}, log: value?.log || fresh.log, chapter: value?.version === 4 ? value.chapter || null : null, memories: value?.memories || {}, agents: { ...fresh.agents, ...value?.agents }, relationships, civic }
 }

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:town": "node scripts/check-town.cjs && node scripts/check-town-simulation.cjs"
   },
   "dependencies": {
     "@types/node": "20.3.0",
